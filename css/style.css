@@ -54,10 +54,17 @@ header li {
 	display: inline;
 	padding: 0 20px 0 20px; /*shora, zprava, zdola, zleva*/
 }
+
 header #branding {
 	float: left;
 }
+
+header #branding img{
+	float: left;
+	width: 50px;
+}
 header #branding h1{
+	float: left;
 	margin: 0;
 }
 header nav {
@@ -96,7 +103,7 @@ header a:hover{
 	background: #35424a;
 }
 #newsletter h1{
-	float: left;
+	Float: left;
 }
 #newsletter form{
 	float: right;

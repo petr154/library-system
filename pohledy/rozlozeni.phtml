@@ -8,70 +8,59 @@
 	<meta name="description" content="<?= $popis ?>">
 	<meta name="keywords" content="<?= $klicova_slova ?>">
 	<meta name="author" content="Petr154">
-
 	<link rel="stylesheet" href="../css/style.css">
+	<link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
-	<header>
-		<div class="container">
-			<div id="branding">
-				<img src="../img/logo_book.png" alt="logo">
-				<h1><span class="highlight">Knihovna</span></h1>
-			</div>
-			<nav>
+		<div class="wrapper">
+			<div class="top-container">
+			<h1 class="logo">Domácí knihovna</h1>
+			<nav class="main-nav">
 				<ul>
-                    <li class="current"><a href="clanek/uvod">Úvod</a></li>
-				    <li><a href="clanek">Články</a></li>
-					<li><a href="kontakt">Kontakt</a></li> 
+					<li><a href="clanek/uvod">Úvod</a></li>
+					<li><a href="clanek">Články</a></li>
+                    <li><a href="kniha">Knihy</a></li>
+					<li><a href="kontakt">Kontakt</a></li>
 				</ul>
 			</nav>
 		</div>
-	</header>
 
-	<section id="newsletter">
-		<div class="container">
-			<h1>Subscribe to our Newsletter</h1>
-			<form>
-				<input type="email" placeholder="Zadejte Email...">
-				<button type="submit" class="button_1">Subscribe</button>
-			</form>
-		</div>
-	</section>
-	<section id="main">
-		<div class="container">
-			<article id="main-col">
-				<h1 class="page-title">Články</h1>
-				<ul id="services">
-					<li>
-						<?php $this->kontroler->vypisPohled(); // vložení aktuálního pohledu do šablony ?>
-					</li>
-				</ul>
-			</article>
-			<aside id="sidebar">
-				<div class="dark">
-					<h3>Get a Quote</h3>
-					<form class="quote">
-						<div>
-							<label>Name</label><br>
-							<input type="text" placeholder="Name">
-						</div>
-						<div>
-							<label>Email</label><br>
-							<input type="text" placeholder="Email">
-						</div>
-						<div>
-							<label>Message</label><br>
-							<textarea placeholder="Message"></textarea>
-						</div>
-						<button class="button_1" type="submit">Send</button>
-					</form>
-				</div>
-			</aside>
-		</div>
-	</section>
-	<footer>
-		<p>Petr154, Copyright &copy; 2019; s výraznou inspirací z <a href="http://www.ITnetwork.cz" target="_blank">ITnetwork.cz</a>.</p>
-	</footer>
+		<section class="search-container">
+<!--
+			<h1 class="search-text">Vyhledej článek</h1>
+-->
+			<div class="search-form">
+				<form>
+					<input type="text" placeholder="Hledejte v knihách...">
+					<button type="submit" class="btn1">VYHLEDAT</button>
+				</form>
+			</div>
+		</section>
 
+		<section class="articles">
+			<div class="box-container">
+				<h3><?= $titulek ?></h3>
+				<?php $this->kontroler->vypisPohled(); // vložení aktuálního pohledu do šablony ?>
+			</div>
+
+			<div class="login">
+				<h3>Přihlášení</h3>
+				<form>
+					<div>
+						<label>Jméno:</label><br>
+						<input type="text" placeholder="Jméno..." required>
+					</div>
+					<div>
+						<label>Heslo:</label><br>
+						<input type="password" placeholder="Heslo..." required>
+					</div>
+					<button class="btn1" type="submit">Přihlásit</button>
+				</form>
+			</div>
+		</section>
+		<footer>
+			<p>Petr154, Copyright &copy; 2019; inspirováno <a href="http://www.ITnetwork.cz" target="_blank">ITnetwork.cz</a>.</p>
+		</footer>
+	</div>
 </body>
 </html>

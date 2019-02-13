@@ -41,5 +41,16 @@ class SpravceClanku
 			ORDER BY `clanky_id` DESC
 		');
 	}
+    
+    //Petrova úprava  - vyhledání článků dle dotazu uživatele
+    public function vratVybrane($search)
+	{
+		return Db::dotazVsechny("
+			SELECT `clanky_id`, `titulek`, `url`, `popisek`
+			FROM `clanky` 
+			WHERE titulek LIKE '%search%' OR obsah LIKE '%search%'
+		");
+	}
+    
 	
 }

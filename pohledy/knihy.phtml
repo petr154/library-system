@@ -1,0 +1,41 @@
+<h1>Seznam knih</h1>
+<p>
+	<form  method="post">
+		<input type="text" name="searchBook" placeholder="hledej v knihách...">
+		<button type="submit" name="button">HLEDEJ</button>
+	</form>
+		<br>
+		Řadit dle:
+		<form method="post">
+			<select name="sortBy">
+				<option value="authorAz" selected="selected">Autora (A>Z)</option>
+				<option value="authorZa">Autora (Z>A)</option>
+				<option value="newest">Roku (Nejnovější)</option>
+				<option value="oldest">Roku (Nejstarší)</option>
+			</select>
+			<button type="submit">SEŘAĎ</button>
+		</form>
+</p>
+
+
+<?php
+	if (isset($_POST['searchBook'])) {
+		echo "Hledaný výraz: " . htmlspecialchars($_POST['searchBook']);
+	}
+?>
+
+<table>
+<?php foreach ($knihy as $kniha) : ?>
+	<tr>
+		<td>
+			<?= $kniha['autor'] ?>
+		</td>
+		<td>
+			<a href="kniha/<?= $kniha['url'] ?>"><?= $kniha['titul'] ?></a>
+		</td>
+		<td>
+			<?= $kniha['vydani'] ?>
+		</td>
+	</tr>
+<?php endforeach ?>
+</table>

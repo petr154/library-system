@@ -1,190 +1,207 @@
-body {
-	font-family:  Arial, Helvetica, sans-serif;	/*font-size + line-height + font-family all in one ... */
-	font-size: 15px;							/*font:  15px/1.5, Arial, Helvetica, sans-serif;*/
-	line-height: 1.5;
-	padding: 0;
-	margin: 0;
-	background-color: #F4F4F4
-}												/*Mobile devices: through media queries - we can set up media queries
-												to say that - this kind of css works only with certain width of the screen ;
+:root {
+	--primary: #ddd;
+	--dark: #333;
+	--light: #fff;
+	--shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 
-/*Global styles*/
-.container {
+	--c-background: #ccc;
+	--c-light: #F4F4F4;
+	--c-dark: #35424a;
+	--c-orange: #e8491d;
+	--c-text: #ffffff;
+	--c-hover: #cccccc;
+
+
+}
+html {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: var(--c-light);
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.btn1 {
+  background: var(--c-orange);
+  color: var(--c-light);
+  height: 30px;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+
+}
+
+.wrapper {
 	width: 80%;
 	margin: auto;
-	overflow: hidden;
+  	display: grid;
+  	/*grid-gap: 20px;*/
 }
-ul{
-	margin: 0;
+
+/* Navigation, Top container*/
+.top-container {
+	display: grid;
+	grid-template-areas:
+		'logo main-nav';
+	grid-template-columns: 1.5fr 1fr;
+	height: 100px;
+	background: var(--c-dark);
+	color: var(--c-orange);
+	border-bottom: var(--c-orange) 5px solid;
+
+}
+
+.logo{
+	display: grid;
+	margin-left: 20px;
+	grid-area: logo;
+	font-size: 40px;
+}
+.main-nav {
+	grid-area: main-nav;
+}
+.main-nav ul {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 10px;
 	padding: 0;
-}
-.button_1 {
-	height: 38px;
-	background: #e8491d;
-	border:  none;
-	padding-left: 20px;
-	padding-right: 20px;
-	color: #ffffff;
-}
-.dark {
-	padding: 15px;
-	background: #35424a;
-	color: #ffffff;
-	margin-top: 10px;
-	margin-bottom: 10px;
+	list-style: none;
+
 }
 
-/*Header*/
-header {
-	background:  #35424a;
-	color: #ffffff;
-	padding-top: 30px;
-	min-height: 70px;
-	border-bottom: #e8491d 3px solid;
-}
-header a{
-	color: #ffffff;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-size: 16px;
+.main-nav a {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem;
+  text-align: center;
+  color: var(--c-light);
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  box-shadow: var(--shadow);
 }
 
-header li {
-	float: left;
-	display: inline;
-	padding: 0 20px 0 20px; /*shora, zprava, zdola, zleva*/
+.main-nav a:hover {
+  background: var(--dark);
+  color: var(--c-orange);
 }
 
-header #branding {
-	float: left;
+/* Search container*/
+.search-container {
+	display: grid;
+	/*grid-template-areas:
+		'search-text search-form';
+	grid-template-columns: 1fr 1fr;*/
+	height: 60px;
+	background: var(--c-dark);
+	color: var(--c-light);
 }
 
-header #branding img{
-	float: left;
-	width: 50px;
-}
-header #branding h1{
-	float: left;
-	margin: 0;
-}
-header nav {
-	float: right;
-	margin-top: 10px;
-}
-header .highlight, header .current a{
-	color: #e8491d;
-	font-weight: bold;
-}
-header a:hover{
-	color: #cccccc;
-	font-weight: bold;
-}
-
-/* Showcase*/
-#showcase {
-	min-height: 400px;										/* background picture: no-repeat 0 -600px */
-	background: url('../img/showcase.jpg') no-repeat 0 -600px;		/* numbers go for positioning - x-axis first, then y-axis; */
-	text-align: center;														/* we are in the css folder - to to out, we use:  ../   */
-	color: #ffffff;
-}
-#showcase h1{
-	margin-top: 100px;
-	font-size: 55px;
-	margin-bottom: 10px;
-}
-#showcase p{
+/*.search-text {
+	grid-area: search-text;
+	margin-left: 20px;
 	font-size: 20px;
+}*/
+
+.search-form {
+	margin: 10px 0 0 20px;
+
+	/*grid-area: search-form;
+	justify-self: start;*/
+
 }
 
-/*Newsletter*/
-#newsletter {
-	padding: 15px;
-	color: #ffffff;
-	background: #35424a;
-}
-#newsletter h1{
-	Float: left;
-}
-#newsletter form{
-	float: right;
-	margin-top: 25px;
-}
-#newsletter input[type="email"]{
-	padding: 4px;
+form input {
 	height: 25px;
 	width: 250px;
 }
 
-/* Boxes*/
-#boxes {
+form textarea {
+	width: 400px;
+	height: 150px;
+}
+
+/*Contact form*/
+
+.contact-form label,
+.contact-form input,
+.contact-form textarea {
+
+	margin: 10px 0  10px 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact-form button {
+
+	margin: 5px 0 0 12px;
+}
+
+
+/* Articles container*/
+
+.articles {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: 2fr 1fr;
+  /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+}
+
+.box-container {
+	grid-column: 1;
+  	background: var(--c-background);
+  	text-align: left;
+  	padding: 0.5rem 0.5rem;
+  	box-shadow: var(--shadow);
+		margin-top: 20px;
+		text-decoration: none;
+	/*height: 100px;
+	overflow: hidden;*/
+}
+
+.box {
+	grid-column: 1;
+  background: var(--c-background);
+  text-align: left;
+	padding: 0rem 1rem 1rem 1rem;
+  box-shadow: var(--shadow);
 	margin-top: 20px;
-}
-#boxes .box{
-	float: left;
-	width: 30%;
-	padding: 10px;
-	text-align: center;
-}
-#boxes .box img{
-	width: 90px;
+	text-decoration: none;
+	height: auto;
+	overflow: hidden;
+
 }
 
-/*Sidebar*/
-aside#sidebar {
-	float: right;
-	width: 30%;
-	margin-top: 10px;
+.login{
+	grid-column:2;
+	margin-top: 20px;
+	height: 220px;
+	background: var(--c-dark);
+	color: var(--c-light);
+	box-shadow: var(--shadow);
 }
 
-aside#sidebar .quote input, aside#sidebar .quote textarea {
+.login h3,
+.login form label,
+.login form input {
 	width: 90%;
-	padding: 5px;
-	font-family:  Arial, Helvetica, sans-serif;
-
-}
-/* Main-col*/
-article#main-col{
-	float: left;
-	width: 65%;
+	margin: 10px 0  10px 10px;
 }
 
-/*Odkazy*/
-ul#services li{
-	list-style: none;
-	padding: 20px;
-	border: #cccccc solid 1px;
-	margin-bottom: 5px;
-	background: #e6e6e6;
+.login form button {
+
+	margin: 5px 0 0 10px;
 }
+
 footer {
 	padding: 20px;
 	margin-top: 20px;
-	color: #ffffff;
-	background-color: #e8491d;
+	color: var(--c-text);
+	background-color: var(--c-orange);
 	text-align: center;
-}
-
-/* Media queries*/
-@media(max-width: 768px) {
-	header #branding, header nav, header nav li,
-	#newsletter h1, #newsletter form, #boxes .box,
-	article#main-col, aside#sidebar{
-		float: none;
-		text-align: center;
-		width: 100%;
-	}
-	header{
-		padding-bottom: 20px;
-	}
-	#showcase h1{
-		margin-top: 40px;
-	}
-	#newsletter button, .quote button{
-		display: block;
-		width: 100%;
-	}
-	#newsletter form input[type="email"], .quote input, .quote textarea{
-		width: 100%;
-		margin-bottom: 5px;
-	}
 }

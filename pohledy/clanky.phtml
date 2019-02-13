@@ -1,14 +1,7 @@
-<section id="main">
-		<div class="container">
-			<article id="main-col">
-				<ul id="services">
-                    <?php foreach ($clanky as $clanek) : ?>
-                    	<li>
-                    		<h2 class="page-title"><a href="clanek/<?= $clanek['url'] ?>"><?= $clanek['titulek'] ?></a></h2>
-                    		<?= $clanek['popisek'] ?>                      	
-                    	</li>
-                    <?php endforeach ?>
-                </ul>
-            </article>    
-        </div>
-</section>
+<?php foreach ($clanky as $clanek) : ?>
+  <div class="box">
+    <h2><a href="clanek/<?= $clanek['url'] ?>"><?= $clanek['titulek'] ?></a></h2>
+    <?= $clanek['popisek'] ?>
+  </div>
+
+<?php endforeach ?>
